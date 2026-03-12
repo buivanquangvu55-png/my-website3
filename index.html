@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Website Quốc Khánh 2/9</title>
+
+<style>
+    
+.nen-trang{
+position:relative;
+z-index:1;
+}
+
+body{
+position:relative;
+font-size: 24px;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+background:rgba(180,0,0,0.6);
+
+background-image:url("https://i.postimg.cc/Vs05NLDm/z7602812883919-38d3f68d395d44e587f509eee71cb020.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+opacity:0.3;
+
+z-index:-1;
+}
+html{
+scroll-behavior:smooth;
+}
+
+/* canvas pháo hoa */
+
+#fireworks{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:999;
+}
+
+/* confetti */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear infinite;
+z-index:2;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh) rotate(360deg);
+}
+}
+
+/* khung website */
+
+.container{
+width:90%;
+max-width: 1400px;
+margin:auto;
+background:transparent;
+position:relative;
+z-index:3;
+}
+
+/* banner */
+.banner{
+  position:relative;
+}
+.banner img{
+width:100%;
+height:350px;
+object-fit:cover;
+}
+.banner-text{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:rgb(230, 223, 223);
+  font-size:18px;
+  font-weight:bold;
+  text-align:right;
+  text-shadow:2px 2px 5px rgb(250, 248, 248);
+}
+/* menu */
+
+.menu{
+display:flex;
+background:#e6c48a;
+}
+
+.menu a{
+flex:1;
+text-align:center;
+padding:12px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+border-right:1px solid #999;
+}
+
+.menu a:hover{
+background:#f5deb3;
+}
+
+/* section */
+
+.section{
+padding:30px;
+border-bottom:1px solid #ccc;
+}
+
+/* ảnh lớn */
+
+.hero img{
+width:70%;
+display:block;
+margin:auto;
+}
+
+
+/* grid */
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+/* video */
+
+video{
+width:100%;
+}
+
+/* iframe */
+
+iframe{
+width:100%;
+height:200px;
+}
+
+/* chữ chạy */
+
+.marquee{
+overflow:hidden;
+white-space:nowrap;
+background:#ffe4c4;
+padding:20px;
+}
+.transparent{
+opacity:0.8;}
+.marquee span{
+display:inline-block;
+padding-left:100%;
+animation:run 12s linear infinite;
+}
+
+@keyframes run{
+from{transform:translateX(0)}
+to{transform:translateX(-100%)}
+}
+
+/* thành viên */
+
+.members{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+padding:20px;
+margin-top:40px;
+}
+
+.member{
+border:4px solid black;
+text-align:center;
+padding:5px;
+}
+
+.member img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+/* footer */
+
+.footer{
+background:#f4d7b5;
+padding:15px;
+text-align:center;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<div class="container">
+
+<div class="banner">
+<img src="https://i.postimg.cc/BvvfgKcr/z7602812766033-abd11eacec5d2aad2d3296fa8136886f.jpg">
+<div class="banner-text">
+Nhóm 3 - Lớp 12A1 <br>
+Trường THPT Trường Chinh <br>
+Nhân Cơ
+</div>
+
+<div class="marquee">
+<span>ĐỜI ĐỜI NHỚ ƠN BÁC HỒ VĨ ĐẠI</span>
+</div>
+</div>
+
+<div class="menu">
+<a href="#trangchu">TRANG CHỦ</a>
+<a href="#gioithieu">GIỚI THIỆU</a>
+<a href="#noi dung">NỘI DUNG</a>
+</div>
+
+<div class="section hero" id="gioithieu">
+<img src="https://i.postimg.cc/cJQLTyS1/z7462094027049-d60630f5b310f7251f410ad905068dc8.jpg">
+<h3 style="text-align:center">NGÀY 2/9 LÀ NGÀY GÌ?</h3>
+
+<p>
+Ngày 2/9 là ngày gì hẳn không còn xa lạ đối với mỗi con người Việt Nam. Ngày 2/9 là ngày Quốc khánh Việt Nam. Vào ngày này năm 1945, tại Quảng trường Ba Đình, Hà Nội, Chủ tịch Hồ Chí Minh - vị lãnh tụ kính yêu của dân tộc đã đọc bản Tuyên ngôn Độc lập khai sinh ra nước Việt Nam Dân chủ Cộng hòa, ngày nay chính là nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. 
+</p>
+</div>
+
+<div class="section grid" id="noidung">
+
+<div>
+<h3>LỜI NGỎ</h3>
+<p>
+Chào mừng kỷ niệm ngày Quốc khánh 2/9, chúng ta cùng nghiêng mình kính cẩn tri ân công lao của Chủ tịch Hồ Chí Minh vĩ đại và những người anh hùng đã ngã xuống vì độc lập dân tộc. Hòa bình hôm nay được đổi bằng xương máu của ông cha đi trước, xin nguyện giữ gìn và trân trọng từng phút giây tự do trên mảnh đất hình chữ S này.
+</p>
+</div>
+<div>
+<h3>VIDEO</h3>
+
+<iframe 
+width="560" 
+height="315" 
+src="https://drive.google.com/file/d/1AIzZiKnaCiFt7g20fzGWgEotS7Pzkr8Y/preview"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+<div>
+<img src="https://i.postimg.cc/ydwBQ8vp/z7602813414407-b1663156e465a534c545e7620635316c.jpg" width="400" class="transparent">
+</div>
+
+
+<div>
+<h3>THƠ</h3>
+
+<p>
+Hôm nay sáng mồng Hai tháng Chín
+Thủ đô hoa vàng nắng Ba Đình
+Muôn triệu Tim chờ, Chim cũng nín
+Bỗng vang lên tiếng hát ân tình
+
+Hồ Chí Minh, Hồ Chí Minh!!!
+
+Người đứng trên đài lặng phút giây
+Trông đàn con đó vẫy hai tay
+Cao cao vầng trán ngời đôi mắt
+Độc lập bây giờ mới thấy đây…
+
+Tố Hữu
+</p>
+
+
+
+</div>
+
+
+<div>
+<h3>LINK NHẠC</h3>
+
+<iframe 
+width="560" 
+height="315"
+src="https://drive.google.com/file/d/1C8OaMa2qaqCFVN83vH87FRITWQA0iLlP/preview"
+
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+</div>
+<div>
+<h3>LỜI TRI ÂN</h3>    
+<p>Xin nghiêng mình trước anh linh các anh hùng liệt sĩ – những người đã hiến dâng tuổi xuân, máu xương để đất nước được độc lập, nhân dân được sống trong hòa bình.</p>
+<p>Mãi mãi khắc ghi công ơn của những người đã ngã xuống, để hôm nay chúng ta được hít thở bầu không khí tự do, được sống và mơ ước.</p>
+<div>
+    <p>Chúng con xin hứa sẽ sống xứng đáng với sự hy sinh ấy, tiếp bước các anh xây dựng đất nước giàu mạnh, văn minh.</p>
+</div>
+</div>
+<h3>VIDEO PHỎNG VẤN</h3>
+
+<iframe 
+width="400" 
+height="400" 
+src="https://drive.google.com/file/d/1t398rWSq-XF4fGrpVz50fzBhS5EAILZ2/preview"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+<div class="section">
+<h3>Ý NGHĨA NGÀY 2/9</h3>
+
+<p>
+Ngày 2/9 là ngày Quốc Khánh của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
+Đây là ngày Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Quảng trường Ba Đình năm 1945,
+khai sinh ra nước Việt Nam Dân chủ Cộng hòa.
+</p>
+
+<p>
+Ngày lễ này thể hiện tinh thần độc lập, tự do và lòng tự hào dân tộc của nhân dân Việt Nam.
+Đây cũng là dịp để mọi người tưởng nhớ công lao của các thế hệ cha anh đã hy sinh vì Tổ quốc.
+</p>
+<p>Lời khẳng định đanh thép về chủ quyền: Bản Tuyên ngôn Độc lập không chỉ là dấu mốc chấm dứt chế độ thực dân, phong kiến mà còn là nền tảng pháp lý vững chắc khẳng định quyền tự quyết của dân tộc trên bản đồ thế giới.
+</p>
+<p>
+Sợi dây gắn kết dân tộc: Đây là dịp để mọi người dân, dù đang ở trong nước hay sinh sống tại nước ngoài, cùng ôn lại lịch sử hào hùng, thắt chặt tình đoàn kết và lòng tự hào dân tộc.
+</p>
+<p>
+Giá trị giáo dục: Ngày này nhắc nhở thế hệ trẻ về sự hy sinh của cha ông, từ đó khơi dậy khát vọng cống hiến để xây dựng một Việt Nam hùng cường và phát triển.</p>
+</div>
+
+
+<div class="section">
+<h3>THANH NIÊN CẦN LÀM GÌ</h3>
+<p>
+Thanh niên là lực lượng quan trọng trong việc xây dựng và phát triển đất nước.
+Người trẻ cần học tập tốt, rèn luyện đạo đức và trau dồi kỹ năng để đóng góp cho xã hội.
+</p>
+
+<p>
+Bên cạnh đó, mỗi người cần có tinh thần yêu nước, tôn trọng lịch sử dân tộc,
+giữ gìn bản sắc văn hóa và tích cực tham gia các hoạt động cộng đồng.
+</p>
+
+<p>
+Khi mỗi người trẻ đều cố gắng học tập và làm việc tốt,
+đất nước sẽ ngày càng phát triển và vững mạnh hơn.
+</p>
+
+</div>
+</div>
+
+<div class="members">
+
+<div class="member"><img src="https://i.postimg.cc/jSBny121/z7599861593635-124deb58c6d43d57384cf3a47ba12a02.jpg"><p>Đỗ Thị Kim Ly(Nhóm trưởng)
+</p></div>
+<div class="member"><img src="https://i.postimg.cc/GtvX1Df6/z7599867247963-4fb4df2a531594e634d192a49b0ce84a.jpg"><p>Phạm Thị Ánh Ngọc(thư kí)</p></div>
+<div class="member"><img src="https://i.postimg.cc/B6TFSCSJ/z7599861547202-f335d4206fc9133b30bf3b10f75fe212.jpg"><p>Nguyễn Thị Cảnh Thuyền(viết code)</p></div>
+<div class="member"><img src="https://i.postimg.cc/8kL4chyK/z7599861573943-178fe050dcf060f0aa1d4a058447ddf3.jpg"><p>Bùi Văn Quang Vũ(viết code)</p></div>
+<div class="member"><img src="https://i.postimg.cc/y8pXtndd/z7599861583639-386710992ebcf15a1f2c498bcdb4b0e5.jpg"><p>Nguyễn Tuấn Tú(viết code)</p></div>
+<div class="member"><img src="https://i.postimg.cc/pLWF2j7J/z7599861556308-77ff27e14ca0671d3212d073f80130b9.jpg"><p>Trương Ánh Ngọc(tìm nội dung)</p></div>
+<div class="member"><img src="https://i.postimg.cc/5ym83STX/z7599861580376-2e64b62e678738c61c990d5bd73ee1bb.jpg"><p>Nguyễn Thị Kim Ngân(tìm hình ảnh)</p></div>
+<div class="member"><img src="https://i.postimg.cc/zGz09Vk1/z7599861604873-deaee52654e9985271a71ecf6475b0d4.jpg"><p>Trần Thị Cẩm Tú (lên ý tưởng)</p></div>
+
+</div>
+
+<div class="footer">
+Thông tin liên hệ: Nhóm 3 Tin học lớp 12A1  
+<br>Email: kimly130608@gmail.com  
+<br>SĐT: 0971982729
+</div>
+
+</div>
+<div id="fireworks"></div>
+
+<script>
+document.addEventListener("click", () => {
+
+let duration = 5000; // 3 giây
+let end = Date.now() + duration;
+
+(function frame() {
+
+confetti({
+particleCount:5,
+angle:60,
+spread:55,
+origin:{ x:0 }
+});
+
+confetti({
+particleCount:5,
+angle:120,
+spread:55,
+origin:{ x:1 }
+});
+
+if (Date.now() < end) {
+requestAnimationFrame(frame);
+}
+
+}());
+
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
