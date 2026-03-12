@@ -6,6 +6,7 @@
 
 <style>
     
+
 .nen-trang{
 position:relative;
 z-index:1;
@@ -13,7 +14,7 @@ z-index:1;
 
 body{
 position:relative;
-font-size: 24px;
+font-size: 22px;
 }
 
 body::before{
@@ -84,15 +85,16 @@ z-index:3;
 }
 .banner img{
 width:100%;
-height:350px;
+height:330px;
 object-fit:cover;
 }
 .banner-text{
   position:absolute;
-  top:20px;
+  top:60%;
   right:30px;
+  transform:translateY(-60%);
   color:rgb(230, 223, 223);
-  font-size:18px;
+  font-size:20px;
   font-weight:bold;
   text-align:right;
   text-shadow:2px 2px 5px rgb(250, 248, 248);
@@ -107,7 +109,7 @@ background:#e6c48a;
 .menu a{
 flex:1;
 text-align:center;
-padding:12px;
+padding:8px;
 text-decoration:none;
 color:black;
 font-weight:bold;
@@ -161,7 +163,7 @@ height:200px;
 overflow:hidden;
 white-space:nowrap;
 background:#ffe4c4;
-padding:20px;
+padding: 10px;
 }
 .transparent{
 opacity:0.8;}
@@ -176,28 +178,71 @@ from{transform:translateX(0)}
 to{transform:translateX(-100%)}
 }
 
+.team {
+display:grid;
+grid-template-columns: repeat(4,1fr);
+gap:30px;
+max-width: 1200px;
+margin:auto;
+}
+
+.team img{
+width:100%;
+height:200px;
+object-fit:cover;
+border:none !important;
+display:block;
+outline:none !important;
+box-shadow: none !important;
+background:none !important;
+}
+.label{
+text-align:center;
+font-size:28px;
+font-weight:bold;
+margin:20px 0;
+}
 /* thành viên */
 
-.members{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
+.members-slider{
+display:flex;
+overflow-x:auto;
+overflow-y:hidden;
+gap:20px;
 padding:20px;
 margin-top:40px;
+scroll-behavior:smooth;
+white-space:nowrap;
+}
+
+.members-slider::-webkit-scrollbar{
+display:none;
 }
 
 .member{
-border:4px solid black;
+border:none;
 text-align:center;
 padding:5px;
+min-width: 250px;
+flex:0 0 auto;
 }
 
-.member img{
+.members-slider .member img{
 width:100%;
 height:250px;
 object-fit:cover;
 }
+.slider{
+display:flex;
+align-items:center;
+}
 
+.prev,.next{
+font-size:30px;
+border:none;
+background:white;
+cursor:pointer;
+}
 /* footer */
 
 .footer{
@@ -205,7 +250,104 @@ background:#f4d7b5;
 padding:15px;
 text-align:center;
 }
+.content-box{
+width:90%;
+margin:30px auto;
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+border:2px solid #e2c6a0;
+line-height:1.6;
+}
+.video-box{
+width:500px;
+margin:auto;
+}
 
+.video-box iframe{
+width:100%;
+height:280px;
+border-radius:10px;
+}
+.video-list{
+width:900px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.video-list iframe{
+width:100%;
+height:220px;
+border-radius:10px;
+}
+.footer{
+background:linear-gradient(to right,#7b4b2a,#493003);
+padding:60px 0;
+color:white;
+}
+
+.footer-container{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+}
+
+.footer-box h2{
+margin-bottom:15px;
+}
+
+.footer-box p{
+line-height:1.6;
+opacity:0.9;
+}
+
+.footer-box ul{
+list-style:none;
+padding:0;
+}
+
+.footer-box ul li{
+margin:10px 0;
+cursor:pointer;
+}
+
+.footer-box ul li:hover{
+color:#302403;
+}
+
+.social i{
+font-size:20px;
+margin-right:10px;
+cursor:pointer;
+}
+
+.footer-box input,
+.footer-box textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:none;
+border-radius:8px;
+}
+
+.footer-box button{
+width:100%;
+padding:12px;
+background:#dcaf1a;
+border:none;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+}
+.social img{
+width:25px;
+margin-right:10px;
+}
 
 </style>
 </head>
@@ -224,37 +366,41 @@ Trường THPT Trường Chinh <br>
 Nhân Cơ
 </div>
 
+
+<div class="menu">
+<a href="#trangchu">TRANG CHỦ</a>
+<a href="#gioithieu">GIỚI THIỆU</a>
+<a href="#noidung">NỘI DUNG</a>
+<a href="#hinhanh">HÌNH ẢNH</a>
+<a href="#video">VIDEO</a>
+<a href="#thanhvien">THÀNH VIÊN</a>
+</div>
 <div class="marquee">
 <span>ĐỜI ĐỜI NHỚ ƠN BÁC HỒ VĨ ĐẠI</span>
 </div>
 </div>
 
-<div class="menu">
-<a href="#trangchu">TRANG CHỦ</a>
-<a href="#gioithieu">GIỚI THIỆU</a>
-<a href="#noi dung">NỘI DUNG</a>
-</div>
-
 <div class="section hero" id="gioithieu">
 <img src="https://i.postimg.cc/cJQLTyS1/z7462094027049-d60630f5b310f7251f410ad905068dc8.jpg">
 <h3 style="text-align:center">NGÀY 2/9 LÀ NGÀY GÌ?</h3>
-
+<div class="content-box">
 <p>
 Ngày 2/9 là ngày gì hẳn không còn xa lạ đối với mỗi con người Việt Nam. Ngày 2/9 là ngày Quốc khánh Việt Nam. Vào ngày này năm 1945, tại Quảng trường Ba Đình, Hà Nội, Chủ tịch Hồ Chí Minh - vị lãnh tụ kính yêu của dân tộc đã đọc bản Tuyên ngôn Độc lập khai sinh ra nước Việt Nam Dân chủ Cộng hòa, ngày nay chính là nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. 
 </p>
 </div>
+</div>
 
 <div class="section grid" id="noidung">
 
-<div>
+<div class="content-box">
 <h3>LỜI NGỎ</h3>
 <p>
 Chào mừng kỷ niệm ngày Quốc khánh 2/9, chúng ta cùng nghiêng mình kính cẩn tri ân công lao của Chủ tịch Hồ Chí Minh vĩ đại và những người anh hùng đã ngã xuống vì độc lập dân tộc. Hòa bình hôm nay được đổi bằng xương máu của ông cha đi trước, xin nguyện giữ gìn và trân trọng từng phút giây tự do trên mảnh đất hình chữ S này.
 </p>
 </div>
 <div>
-<h3>VIDEO</h3>
-
+<h3>2-9-1945</h3>
+<div class="content-box">
 <iframe 
 width="560" 
 height="315" 
@@ -263,12 +409,13 @@ frameborder="0"
 allowfullscreen>
 </iframe>
 </div>
+</div>
 <div>
-<img src="https://i.postimg.cc/ydwBQ8vp/z7602813414407-b1663156e465a534c545e7620635316c.jpg" width="400" class="transparent">
+<img src="https://i.postimg.cc/rwmRxCyj/quoc-ky-2-1read-only-16429021029391035905120.webp" style="width:80%;">
 </div>
 
 
-<div>
+<div class="content-box">
 <h3>THƠ</h3>
 
 <p>
@@ -292,7 +439,7 @@ Tố Hữu
 </div>
 
 
-<div>
+<div class="content-box">
 <h3>LINK NHẠC</h3>
 
 <iframe 
@@ -305,32 +452,29 @@ allowfullscreen>
 </iframe>
 </div>
 </div>
-<div>
+<div class="content-box">
 <h3>LỜI TRI ÂN</h3>    
 <p>Xin nghiêng mình trước anh linh các anh hùng liệt sĩ – những người đã hiến dâng tuổi xuân, máu xương để đất nước được độc lập, nhân dân được sống trong hòa bình.</p>
-<p>Mãi mãi khắc ghi công ơn của những người đã ngã xuống, để hôm nay chúng ta được hít thở bầu không khí tự do, được sống và mơ ước.</p>
-<div>
-    <p>Chúng con xin hứa sẽ sống xứng đáng với sự hy sinh ấy, tiếp bước các anh xây dựng đất nước giàu mạnh, văn minh.</p>
+<p>Mãi mãi khắc ghi công ơn của những người đã ngã xuống, để hôm nay chúng ta được hít thở bầu không khí tự do, được sống và mơ ước.</p>  <p>Chúng con xin hứa sẽ sống xứng đáng với sự hy sinh ấy, tiếp bước các anh xây dựng đất nước giàu mạnh, văn minh.</p>
 </div>
-</div>
+<div class="content-box">
 <h3>VIDEO PHỎNG VẤN</h3>
-
-<iframe 
-width="400" 
-height="400" 
+<div class="video-box">
+<iframe  
 src="https://drive.google.com/file/d/1t398rWSq-XF4fGrpVz50fzBhS5EAILZ2/preview"
 frameborder="0"
 allowfullscreen>
 </iframe>
 </div>
+</div>
+</div>
 
 </div>
 
-<div class="section">
+<div class="content-box">
 <h3>Ý NGHĨA NGÀY 2/9</h3>
 
 <p>
-Ngày 2/9 là ngày Quốc Khánh của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
 Đây là ngày Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Quảng trường Ba Đình năm 1945,
 khai sinh ra nước Việt Nam Dân chủ Cộng hòa.
 </p>
@@ -339,17 +483,14 @@ khai sinh ra nước Việt Nam Dân chủ Cộng hòa.
 Ngày lễ này thể hiện tinh thần độc lập, tự do và lòng tự hào dân tộc của nhân dân Việt Nam.
 Đây cũng là dịp để mọi người tưởng nhớ công lao của các thế hệ cha anh đã hy sinh vì Tổ quốc.
 </p>
-<p>Lời khẳng định đanh thép về chủ quyền: Bản Tuyên ngôn Độc lập không chỉ là dấu mốc chấm dứt chế độ thực dân, phong kiến mà còn là nền tảng pháp lý vững chắc khẳng định quyền tự quyết của dân tộc trên bản đồ thế giới.
-</p>
 <p>
 Sợi dây gắn kết dân tộc: Đây là dịp để mọi người dân, dù đang ở trong nước hay sinh sống tại nước ngoài, cùng ôn lại lịch sử hào hùng, thắt chặt tình đoàn kết và lòng tự hào dân tộc.
 </p>
-<p>
-Giá trị giáo dục: Ngày này nhắc nhở thế hệ trẻ về sự hy sinh của cha ông, từ đó khơi dậy khát vọng cống hiến để xây dựng một Việt Nam hùng cường và phát triển.</p>
+
 </div>
 
 
-<div class="section">
+<div class="content-box">
 <h3>THANH NIÊN CẦN LÀM GÌ</h3>
 <p>
 Thanh niên là lực lượng quan trọng trong việc xây dựng và phát triển đất nước.
@@ -368,11 +509,72 @@ Khi mỗi người trẻ đều cố gắng học tập và làm việc tốt,
 
 </div>
 </div>
+<div class="content-box">
+<div class="section grid" id="hinhanh">
+  <h3>HÌNH ẢNH 2-9 </h3>
+</div>
+  <h2 class="label">Xưa</h2>
 
-<div class="members">
+  
+  <div class="team">
+<div class="member">
+<img src="https://i.postimg.cc/G3kDjPTp/z7605893969912-fdb3230328dd42f843e89f61e1dc690a.jpg">
+</div>
 
-<div class="member"><img src="https://i.postimg.cc/jSBny121/z7599861593635-124deb58c6d43d57384cf3a47ba12a02.jpg"><p>Đỗ Thị Kim Ly(Nhóm trưởng)
-</p></div>
+<div class="member">
+<img src="https://i.postimg.cc/tJCVTwqB/z7605893993751-9b1ffad664ede72f9d10c3da9b88c966.jpg">
+</div>
+
+<div class="member">
+<img src="https://i.postimg.cc/L8fkrdn0/z7605893995160-5418c9840e092a86cfd092c2818491d0.jpg">
+</div>
+
+<div class="member">
+<img src="https://i.postimg.cc/x1cT6H1f/z7605867424190-54d67556b3df520865854283a83e80a7.jpg">
+</div>
+
+</div>
+
+<h2 class="label">Nay</h2>
+<div class="team">
+<div class="member">
+<img src="https://i.postimg.cc/05FK0Mr8/z7605860590356-cad13c375b132e2963fba7eadb4a1da4.jpg">
+</div>
+<div class="member">
+<img src="https://i.postimg.cc/pLPt3vdY/z7605848797039-3b700b6159fbb403c0adf409450fc99f.jpg">
+</div>
+<div class="member">
+<img src="https://i.postimg.cc/QdfvPWP6/z7605871295426-7ded61949737ad0cdc5a85f676a4258c.jpg">
+</div>
+<div class="member">
+<img src="https://i.postimg.cc/15Hdnq9X/z7605892492013-acd3d686f174f4b310929700a5438080.jpg">
+</div>
+</div>
+</div>
+<div class="content-box">
+<div class="section grid" id="video">
+<h2 class="label">VIDEO</h2>
+
+<div class="video-list">
+
+<iframe src="https://drive.google.com/file/d/1C8OaMa2qaqCFVN83vH87FRITWQA0iLlP/preview" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1leWVjElQg7CzZssq3kmhJNDwEn4HJmNz/preview" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1t398rWSq-XF4fGrpVz50fzBhS5EAILZ2/preview" allowfullscreen></iframe>
+
+<iframe src="https://drive.google.com/file/d/1IoM84He23G_DilHQ8fgfqexN3UE_ZFfI/preview" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1ZMc11aKvAkUF9Ejo_EPyG8cvS_XX6YnE/preview" allowfullscreen></iframe>
+<iframe src="https://drive.google.com/file/d/1TlfPblDKdkrIc4XPJoXJecBsND6rVt-2/preview" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+
+<div class="section grid" id="thanhvien"></div>
+<h2>THÀNH VIÊN</h2>
+<div class="slider">
+<button class="next" onclick="slideLeft()">❮</button>
+<div class="members-slider" id="gallery">
+
+<div class="member"><img src="https://i.postimg.cc/jSBny121/z7599861593635-124deb58c6d43d57384cf3a47ba12a02.jpg"><p>Đỗ Thị Kim Ly(Nhóm trưởng)</p></div>
 <div class="member"><img src="https://i.postimg.cc/GtvX1Df6/z7599867247963-4fb4df2a531594e634d192a49b0ce84a.jpg"><p>Phạm Thị Ánh Ngọc(thư kí)</p></div>
 <div class="member"><img src="https://i.postimg.cc/B6TFSCSJ/z7599861547202-f335d4206fc9133b30bf3b10f75fe212.jpg"><p>Nguyễn Thị Cảnh Thuyền(viết code)</p></div>
 <div class="member"><img src="https://i.postimg.cc/8kL4chyK/z7599861573943-178fe050dcf060f0aa1d4a058447ddf3.jpg"><p>Bùi Văn Quang Vũ(viết code)</p></div>
@@ -380,48 +582,124 @@ Khi mỗi người trẻ đều cố gắng học tập và làm việc tốt,
 <div class="member"><img src="https://i.postimg.cc/pLWF2j7J/z7599861556308-77ff27e14ca0671d3212d073f80130b9.jpg"><p>Trương Ánh Ngọc(tìm nội dung)</p></div>
 <div class="member"><img src="https://i.postimg.cc/5ym83STX/z7599861580376-2e64b62e678738c61c990d5bd73ee1bb.jpg"><p>Nguyễn Thị Kim Ngân(tìm hình ảnh)</p></div>
 <div class="member"><img src="https://i.postimg.cc/zGz09Vk1/z7599861604873-deaee52654e9985271a71ecf6475b0d4.jpg"><p>Trần Thị Cẩm Tú (lên ý tưởng)</p></div>
-
+</div>
+<button class="next" onclick="slideRight()">❯</button>
+</div>
+</div>
 </div>
 
-<div class="footer">
-Thông tin liên hệ: Nhóm 3 Tin học lớp 12A1  
-<br>Email: kimly130608@gmail.com  
-<br>SĐT: 0971982729
-</div>
 
-</div>
+
+
+
 <div id="fireworks"></div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-document.addEventListener("click", () => {
 
-let duration = 5000; // 3 giây
+document.addEventListener("dblclick", () => {
+
+let duration = 3000;
 let end = Date.now() + duration;
 
 (function frame() {
 
 confetti({
-particleCount:5,
+particleCount:3,
 angle:60,
-spread:55,
+spread:60,
 origin:{ x:0 }
 });
 
 confetti({
-particleCount:5,
+particleCount:3,
 angle:120,
-spread:55,
+spread:60,
 origin:{ x:1 }
 });
 
-if (Date.now() < end) {
+if(Date.now() < end){
 requestAnimationFrame(frame);
 }
 
-}());
+})();
 
 });
+
 </script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h2>Quốc khánh VIỆT NAM 2-9</h2>
+<p>
+Trang web có thể giải đáp những thắc mắc về ngày 2-9, cung cấp thông tin lịch sử, hình ảnh, video và lời tri ân đến các anh hùng liệt sĩ. Đây cũng là nơi để mọi người cùng nhau ôn lại lịch sử hào hùng của dân tộc và thể hiện lòng tự hào về đất nước.
+</p>
+
+<div class="social">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg">
+
+</div>
+</div>
+
+
+<div class="footer-box">
+<h2>Tìm hiểu</h2>
+<ul>
+<li>Ngày 2-9 là ngày gì</li>
+<li>Tư liệu lịch sử</li>
+<li>Thơ ca 2-9</li>
+<li>Lời tri ân</li>
+<li>Ý nghĩa ngày 2-9</li>
+<li>Thanh niên cần làm gì</li>
+</ul>
+</div>
+
+
+<div class="footer-box">
+<h2>Lời nhận xét</h2>
+
+<input type="text" placeholder="Tên của bạn">
+<input type="text" placeholder="Nhóm">
+<textarea placeholder="Lời nhắn..."></textarea>
+
+<button>Gửi</button>
+
+</div>
+
+</div>
+</footer>
+<div class="footer">
+Thông tin liên hệ: Nhóm 3 Tin học lớp 12A1  
+<br>Email: kimly130608@gmail.com  
+<br>SĐT: 0971982729
+
+</div>
+
+</script>
+<script>
+function slideRight(){
+  document.getElementById("gallery").scrollBy({
+    left: 300,
+    behavior: "smooth"
+  });
+}
+
+function slideLeft(){
+  document.getElementById("gallery").scrollBy({
+    left: -300,
+    behavior: "smooth"
+  });
+}
+</script>
 </body>
 </html>
