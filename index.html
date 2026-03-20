@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Quốc Khánh 2/9</title>
 
 <style>
@@ -260,6 +261,17 @@ box-shadow:0 4px 10px rgba(0,0,0,0.2);
 border:2px solid #e2c6a0;
 line-height:1.6;
 }
+    .video-box{
+width:90%;
+max-width:500px;
+margin:auto;
+}
+
+.video-list{
+width:90%;
+max-width:900px;
+margin:auto;
+}
 .video-box{
 width:500px;
 margin:auto;
@@ -348,7 +360,38 @@ cursor:pointer;
 width:25px;
 margin-right:10px;
 }
+    @media (max-width:768px){
 
+.menu{
+flex-direction:column;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.team{
+grid-template-columns:1fr 1fr;
+}
+
+.banner img{
+height:200px;
+}
+
+.banner-text{
+font-size:14px;
+right:10px;
+}
+
+.hero img{
+width:100%;
+}
+
+}
+img{
+max-width:100%;
+height:auto;
+}
 </style>
 </head>
 
