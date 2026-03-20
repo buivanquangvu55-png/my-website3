@@ -383,6 +383,38 @@ img{
 max-width:100%;
 height:auto;
 }
+    img, video, iframe{
+max-width:100%;
+width:100%;
+height:auto;
+display:block;
+}
+
+.content-box{
+overflow:hidden;
+}
+
+.video-box{
+width:100%;
+max-width:500px;
+margin:auto;
+}
+
+.video-list{
+width:100%;
+max-width:900px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+@media (max-width:768px){
+.video-list{
+grid-template-columns:1fr;
+}
+}
+   
 </style>
 </head>
 
